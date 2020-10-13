@@ -1,0 +1,54 @@
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+   <constant name = "struts.devMode" value = "true" />
+   <!-- <constant name="struts.convention.action.suffix" value="Controller"/>
+    <constant name="struts.convention.action.mapAllMatches" value="true"/>
+    <constant name="struts.convention.default.parent.package" value="rest-default"/>
+    <constant name="struts.convention.package.locators" value="rest"/> -->
+   <package name = "default" extends="struts-default,json-default">
+      
+      <action name = "index">
+         <result >/index.jsp</result>
+      </action>
+
+      <action name = "hello" 
+         class = "HelloWorldAction" 
+         method = "execute">
+         <result name = "success">/HelloWorld.jsp</result>
+         <result name = "failure">/Failure.jsp</result>
+      </action>
+      <action name="create" class="CreateAction" >
+			<result name="CREATE">/Create.jsp</result>
+		</action>
+        <action name="read" class="ReadAction" >
+			<result name="READ">/Read.jsp</result>
+		</action>
+        <action name="updatedetails" class="UpdateAction">
+			<result name="UPDATE">/Update.jsp</result>
+		</action>
+        <action name="deleterecord" class="DeleteAction">
+			<result name="DELETE">/Delete.jsp</result>
+		</action>
+        <action name="gg" class="ReadAction">
+        <result type="json"/>
+        </action>
+        <!-- <action name="JsonAction" class="JsonData">
+        
+        <result type="json">
+        <interceptor-ref name="json">
+  <param name="jsonContentType">text/json</param>
+ 
+   </interceptor-ref>
+        </result>
+     
+   </action> -->
+   <!-- <action name="he" 
+   class="HelloWorldAction"
+   method="execute">
+   <result name="success">/Failure.jsp</result>
+   </action> -->
+      </package>
+            
+          
+
+</struts>
